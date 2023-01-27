@@ -16,9 +16,9 @@ function getTotal(list){
 
 //criando a tabela
 function setList(list){
-	var table = '<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead><tbody>';
+	var table = '<thead><tr><td>Descrição</td><td>Montante</td><td>Valor</td><td>Ação</td></tr></thead><tbody>';
 	for(var key in list){
-		table += '<tr><td>'+ formatDesc(list[key].desc) +'</td><td>'+ formatAmount(list[key].amount) +'</td><td>'+ formatValue(list[key].value) +'</td><td><button class="btn btn-default" onclick="setUpdate('+key+');">Edit</button> <button class="btn btn-default" onclick="deleteData('+key+');">Delete</button></td></tr>';
+		table += '<tr><td>'+ formatDesc(list[key].desc) +'</td><td>'+ formatAmount(list[key].amount) +'</td><td>'+ formatValue(list[key].value) +'</td><td><button class="btn btn-default" onclick="setUpdate('+key+');">Editar</button> <button class="btn btn-default" onclick="deleteData('+key+');">Deletar</button></td></tr>';
 	}
 	table += '</tbody>';
 
@@ -101,7 +101,7 @@ function updateData(){
 
 //deletando os dados
 function deleteData(id){
-	if(confirm("Delete this item?")){
+	if(confirm("Excluir esta lista?")){
 		if(id === list.length - 1){
 			list.pop();
 		}else if(id === 0){
@@ -124,22 +124,22 @@ function validation(){
 	document.getElementById("errors").style.display = "none";
 
 	if(desc === ""){
-		errors += '<p>Fill out description</p>';
+		errors += '<p>Preencha a descrição</p>';
 	}
 	if(amount === ""){
-		errors += '<p>Fill out a quantity</p>';
+		errors += '<p>Preencha uma quantidade</p>';
 	}else if(amount != parseInt(amount)){
-		errors += '<p>Fill out a valid amount</p>';
+		errors += '<p>Preencha um valor válido</p>';
 	}
 	if(value === ""){
-		errors += '<p>Fill out a value</p>';
+		errors += '<p>Preencha um valor</p>';
 	}else if(value != parseFloat(value)){
-		errors += '<p>Fill out a valid value</p>';
+		errors += '<p>Preencha um valor válido</p>';
 	}
 
 	if(errors != ""){
 		document.getElementById("errors").style.display = "block";
-		document.getElementById("errors").innerHTML = "<h3>Error:</h3>" + errors;
+		document.getElementById("errors").innerHTML = "<h3>Erro:</h3>" + errors;
 		return 0;
 	}else{
 		return 1;
@@ -148,7 +148,7 @@ function validation(){
 
 //deletando lista
 function deleteList(){
-	if (confirm("Delete this list?")){
+	if (confirm("Excluir esta lista?")){
 		list = [];
 		setList(list);
 	}
